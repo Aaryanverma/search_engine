@@ -90,7 +90,10 @@ if data_file!=None:
     
     if query!="":
         start_time = time.time()
-        bc,questions_encoder,questions_encoder_len,faq_data = load_files(pretrained_model)
+        try:
+            bc,questions_encoder,questions_encoder_len,faq_data = load_files(pretrained_model)
+        except:
+            st.error("Please train the model first from sidebar!")
         responses = run(bc,questions_encoder,questions_encoder_len,faq_data,query,top_n = 5)
         end_time = time.time() - start_time
 
