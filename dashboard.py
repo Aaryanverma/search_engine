@@ -100,11 +100,11 @@ if data_file!=None:
         if responses[1]!=[]:
             st.markdown("<b>Related Queries:</b>",unsafe_allow_html=True)
             for related_ques,related_ans in zip(responses[1],responses[2]):
-                with st.beta_expander(related_ques):
+                with st.expander(related_ques):
                     st.write(related_ans)
 
 else:
-    with st.beta_expander("Steps:",expanded=True):
+    with st.expander("Steps:",expanded=True):
         st.markdown("1. Upload data file in sidebar in following <a href='https://drive.google.com/file/d/1uwJdMqhF_VaiyngQkZWh02l93HlwIFRw/view?usp=sharing' target='_blank'>format</a> only. \n\
 2. Select model of your choice or leave it default.  \n\
 3. Train model on data.  \n\
