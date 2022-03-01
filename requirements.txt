@@ -1,3 +1,4 @@
 torch==1.10.2
 sentence_transformers==2.2.0
+streamlit==1.6.0
 numpy==1.18.5
