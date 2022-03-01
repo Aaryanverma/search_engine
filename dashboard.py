@@ -76,7 +76,7 @@ if data_file!=None:
 
     
     if st.sidebar.button("Train"):
-        caching.clear_cache()
+        load_files.clear()
         
         with st.spinner("Training model on your data, Pls wait... (This may take time depending on data size)"):
             
