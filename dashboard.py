@@ -70,7 +70,7 @@ def run(bc,questions_encoder,questions_encoder_len,faq_data,query,top_n):
 
 
 data_file = st.sidebar.file_uploader("Upload Data")
-pretrained_model = st.sidebar.text_input("Select Model name", value = 'all-MiniLM-L12-v2', help="Get all models list here: https://huggingface.co/models?library=sentence-transformers (Default: all-MiniLM-L12-v2)")
+pretrained_model = st.sidebar.text_input("Select Model name", value = 'all-distilroberta-v1', help="Get all models list here: https://huggingface.co/models?library=sentence-transformers (Default: all-distilroberta-v1)")
 
 if data_file!=None:
 
