@@ -92,19 +92,21 @@ if data_file!=None:
         start_time = time.time()
         try:
             bc,questions_encoder,questions_encoder_len,faq_data = load_files(pretrained_model)
+            responses = run(bc,questions_encoder,questions_encoder_len,faq_data,query,top_n = 5)
+            end_time = time.time() - start_time
+
+            st.markdown(f"<small>Query Took {int(end_time/60)} minutes, {(end_time%60):.3f} seconds</small>",unsafe_allow_html=True)
+            
+            st.info(responses[0])
+            if responses[1]!=[]:
+                st.markdown("<b>Related Queries:</b>",unsafe_allow_html=True)
+                for related_ques,related_ans in zip(responses[1],responses[2]):
+                    with st.expander(related_ques):
+                        st.write(related_ans)
         except:
             st.error("Please train the model first from sidebar!")
-        responses = run(bc,questions_encoder,questions_encoder_len,faq_data,query,top_n = 5)
-        end_time = time.time() - start_time
-
-        st.markdown(f"<small>Query Took {int(end_time/60)} minutes, {(end_time%60):.3f} seconds</small>",unsafe_allow_html=True)
         
-        st.info(responses[0])
-        if responses[1]!=[]:
-            st.markdown("<b>Related Queries:</b>",unsafe_allow_html=True)
-            for related_ques,related_ans in zip(responses[1],responses[2]):
-                with st.expander(related_ques):
-                    st.write(related_ans)
+        
 
 else:
     with st.expander("Steps:",expanded=True):
