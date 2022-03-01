@@ -8,6 +8,14 @@ from sentence_transformers import SentenceTransformer
 import random
 import time
 
+hide_streamlit_style = """
+                    <style>
+                    #MainMenu {visibility: hidden;}
+                    footer {visibility: hidden;}
+                    </style>
+                    """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 st.markdown("<h1><center>Search Engine</center></h1>",unsafe_allow_html=True)
 @st.cache(show_spinner=False)
 def process(data_file):
@@ -104,3 +112,5 @@ else:
 
     st.text_input("Write your query...",key=2)
 
+
+st.markdown("<small><center><b>Made with ♥ by </a href='https://www.linkedin.com/in/aaryanverma' target='_blank'>Aaryan Verma</a></b></center></small>",unsafe_allow_html=True)
