@@ -17,13 +17,13 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.markdown("<h1><center>Search Engine</center></h1>",unsafe_allow_html=True)
-@st.cache(show_spinner=False)
+@st.experimental_memo(show_spinner=False)
 def process(data_file):
     data = json.load(data_file)
     random.shuffle(data)
     json.dump(data, open("faq.json", "wt", encoding="utf-8"), ensure_ascii=False, indent=4)
 
-@st.cache(show_spinner=False)
+@st.experimental_memo(show_spinner=False)
 def encode_standard_question(faq_data,pretrained_model):
     bc = SentenceTransformer(pretrained_model)
     standard_questions = [each['question'] for each in faq_data]
@@ -35,7 +35,7 @@ def encode_standard_question(faq_data,pretrained_model):
     standard_questions_encoder_len = np.sqrt(np.sum(standard_questions_encoder * standard_questions_encoder, axis=1))
     np.save("./questions_len", standard_questions_encoder_len)
 
-@st.cache(show_spinner=False,allow_output_mutation=True)
+@st.experimental_memo(show_spinner=False)
 def load_files(pretrained_model):
     faq_data = json.load(open("./faq.json", "rt", encoding="utf-8"))
     questions_encoder = np.load("./questions.npy")
