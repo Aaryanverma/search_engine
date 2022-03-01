@@ -70,7 +70,7 @@ def run(bc,questions_encoder,questions_encoder_len,faq_data,query,top_n):
 
 
 data_file = st.sidebar.file_uploader("Upload Data")
-pretrained_model = st.sidebar.text_input("Select Model name", value = 'all-distilroberta-v1', help="Get all models list here: https://huggingface.co/models?library=sentence-transformers (Default: all-distilroberta-v1)")
+pretrained_model = st.sidebar.text_input("Select Model name", value = 'bert-base-nli-mean-tokens', help="Get all models list here: https://huggingface.co/models?library=sentence-transformers (Default: bert-base-nli-mean-tokens)")
 
 if data_file!=None:
 
