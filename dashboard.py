@@ -113,4 +113,4 @@ else:
     st.text_input("Write your query...",key=2)
 
 
-st.markdown("<small><center><b>Made with ♥ by </a href='https://www.linkedin.com/in/aaryanverma' target='_blank'>Aaryan Verma</a></b></center></small>",unsafe_allow_html=True)
+st.markdown("<small><center><b>Made with ♥ by <a href='https://www.linkedin.com/in/aaryanverma' target='_blank'>Aaryan Verma</a></b></center></small>",unsafe_allow_html=True)
